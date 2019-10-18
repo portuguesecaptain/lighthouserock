@@ -1,0 +1,13 @@
+# Cockroach Labs zone
+- name: Cockroach Labs
+  latitude: !secret crl_lat
+  longitude: !secret crl_long
+  radius: 250
+  icon: mdi:ladybug
+
+# Battery Park City School zone
+- name: Battery Park City School
+  latitude: !secret bpc_lat
+  longitude: !secret bpc_long
+  radius: 250
+  icon: mdi:school

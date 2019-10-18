@@ -1,0 +1,65 @@
+#Initial configuration for homeassistant component, the main component.
+homeassistant:
+  # Name of the home
+  name: Lighthouse Rock
+  # Physical location for zone configuration
+  latitude: !secret lhr_lat
+  longitude: !secret lhr_long
+  unit_system: imperial
+  # Location for sunrise/sunset times
+  time_zone: America/New_York
+  # All externally defined YAML files are below these lines
+  customize: !include customize.yaml
+
+# Adds the Map & Configuration option on the left hand side of the UI
+config:
+map:
+system_health:
+
+# Defines all the lights and outlets in groups defined by rooms, etc.
+group: !include groups.yaml
+
+# Created automations below
+automation: !include automations.yaml
+script: !include scripts.yaml
+
+# Defines Home zone and our Work locations for thermostat automations
+zone: !include zone.yaml
+
+# Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+http:
+  ssl_certificate: /ssl/fullchain.pem
+  ssl_key: /ssl/privkey.pem
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+frontend:
+  themes: !include themes.yaml  
+
+### Integrated Components
+
+ios:
+
+isy994:
+  host: !secret isyhost
+  username: !secret isyuser
+  password: !secret isypass
+
+ring:
+  username: !secret ringuser
+  password: !secret ringpass
+  scan_interval: 10
+
+### Component Details
+camera:
+  - platform: ring
+
+sensor:
+  - platform: ring
+    monitored_conditions:
+      - battery
+      - last_ding
+      - last_motion
+      - wifi_signal_strength

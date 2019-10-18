@@ -1,0 +1,54 @@
+- alias: Set dark theme at startup and login
+  description: 'This automation sets the HomeAssistant UI to a dark theme.'
+  trigger: 
+    platform: homeassistant
+    event: start
+  action:
+    service: frontend.set_theme
+    data:
+      name: simple-dark
+
+- alias: Outdoor Lights at Sundown
+  description: 'This automation controls the outdoor lights to turn on 15 min before sundown.'
+  trigger:
+  - event: sunset
+    offset: -0:15
+    platform: sun
+  action:
+  - data:
+      entity_id: switch.outdoor_lights
+    service: switch.turn_off
+
+- alias: Outdoor Lights Off Home
+  description: 'This automation checks if I am home and its midnight, and will turn the outdoor lights off if those conditions are met.'
+  trigger:
+    at: "00:00:00"
+    platform: time
+  condition:
+    condition: or
+    conditions:
+      - condition: state
+        state: 'not_home'
+        entity_id: device_tracker.ricardo_8d620d94_fed2_48dc_baf4_d268cd78cd15
+      - condition: state
+        entity_id: switch.outdoor_lights
+        state: 'off' 
+  action:
+    - data:
+        entity_id: switch.outdoor_lights
+      service: switch.turn_off
+
+- alias: Outdoor Lights Off Morning
+  description: 'This automation will turn the lights off shortly before sunrise.'
+  trigger:
+    event: sunrise
+    offset: -0:15
+    platform: sun
+  condition:
+    condition: state
+    entity_id: switch.outdoor_lights
+    state: 'off'
+  action:
+    - data:
+        entity_id: switch.outdoor_lights
+      service: switch.turn_off
