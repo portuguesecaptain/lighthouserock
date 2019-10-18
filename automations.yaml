@@ -52,3 +52,9 @@
     - data:
         entity_id: switch.outdoor_lights
       service: switch.turn_off
+
+- alias: Johni DaDaLights
+  description: 'This automation will control the lights for when Johni goes to teach DaDa'
+  trigger:
+    event: time
+    platform: 

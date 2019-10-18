@@ -57,9 +57,18 @@ camera:
   - platform: ring
 
 sensor:
+  # Ring doorbell info
   - platform: ring
     monitored_conditions:
       - battery
       - last_ding
       - last_motion
       - wifi_signal_strength
+  
+  # Travis CI integration with HomeAssistant and GitHub
+  - platform: travisci
+    api_key: gh_token
+    monitored_conditions:
+      - last_build_finished_at
+      - last_build_state
+    repository: "portuguesecaptain/lighthouserock"
