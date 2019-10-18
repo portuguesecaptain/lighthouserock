@@ -8,18 +8,19 @@
     data:
       name: simple-dark
 
-#- alias: Update HA Config On Successful TravisCI Build
-#    trigger:
-#      - platform: state
-#        entity_id: sensor.jonathanadams_home_assistant_config_last_build_id
-#    condition:
-#      - condition: state
-#        entity_id: sensor.jonathanadams_home_assistant_config_last_build_state
-#        state: 'passed'
-#    action:   
-#      - service: hassio.addon_start
-#        data: 
-#          addon: "core_git_pull"
+- alias: TravisCI
+  description: 'When a TravisCI build completes with a Pass, that build is pulled from GitHub to HomeAssistant, and the instance is restarted for new configurations to be run.'
+  trigger:
+    - platform: state
+      entity_id: sensor.portuguesecaptain_lighthouserock_config_last_build_id
+  condition:
+    - condition: state
+      entity_id: sensor.portuguesecaptain_lighthouserock_config_last_build_state
+      state: 'passed'
+  action:   
+    - service: hassio.addon_start
+      data: 
+        addon: "core_git_pull"
 
 - alias: Outdoor Lights at Sundown
   description: 'This automation controls the outdoor lights to turn on 15 min before sundown.'
