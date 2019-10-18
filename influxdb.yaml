@@ -1,0 +1,7 @@
+host: !secret db_host
+port: 8086
+database: !secret db_name
+username: !secret db_user
+password: !secret db_pass
+max_retries: 3
+default_measurement: state

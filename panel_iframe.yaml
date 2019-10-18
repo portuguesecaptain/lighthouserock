@@ -1,0 +1,7 @@
+router:
+  title: 'Router'
+  url: !secret routerip
+
+grafana:
+  title: 'Grafana'
+  url: !secret grafanaip

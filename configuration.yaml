@@ -1,4 +1,4 @@
-#Initial configuration for homeassistant component, the main component.
+# Initial configuration for homeassistant component, the main component.
 homeassistant:
   # Name of the home
   name: Lighthouse Rock
@@ -17,10 +17,13 @@ map:
 system_health:
 updater:
 
+# Contains panel going to other sites for the home
+panel_iframe: !include panel_iframe.yaml
+
 # Defines all the lights and outlets in groups defined by rooms, etc.
 group: !include groups.yaml
 
-# Created automations below
+# All automations are below
 automation: !include automations.yaml
 script: !include scripts.yaml
 
@@ -55,6 +58,8 @@ ring:
   password: !secret ringpass
   scan_interval: 10
 
+# DB for collecting data for Grafana tracking, and Glances utilization
+influxdb: !include influxdb.yaml
 
 # Specific device entities configured in files below:
 camera: !include camera.yaml
