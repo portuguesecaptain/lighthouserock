@@ -15,6 +15,7 @@ homeassistant:
 config:
 map:
 system_health:
+updater:
 
 # Defines all the lights and outlets in groups defined by rooms, etc.
 group: !include groups.yaml
@@ -26,7 +27,7 @@ script: !include scripts.yaml
 # Defines Home zone and our Work locations for thermostat automations
 zone: !include zone.yaml
 
-# Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+# Allows using secure HTTPS connections via SSL certs
 http:
   ssl_certificate: !secret ssl_cert
   ssl_key: !secret ssl_key
@@ -39,35 +40,23 @@ frontend:
   themes: !include themes.yaml  
 
 ### Integrated Components
-
+# iPhone
 ios:
 
+# Universal Device ISY994i
 isy994:
   host: !secret isyhost
   username: !secret isyuser
   password: !secret isypass
 
+# Ring doorbell
 ring:
   username: !secret ringuser
   password: !secret ringpass
   scan_interval: 10
 
-### Component Details
-camera:
-  - platform: ring
 
-sensor:
-  # Ring doorbell info
-  - platform: ring
-    monitored_conditions:
-      - battery
-      - last_ding
-      - last_motion
-      - wifi_signal_strength
-  
-  # Travis CI integration with HomeAssistant and GitHub
-  - platform: travisci
-    api_key: !secret gh_token
-    monitored_conditions:
-      - last_build_finished_at
-      - last_build_state
+# Specific device entities configured in files below:
+camera: !include camera.yaml
+binary_sensor: !include binary_sensor.yaml
+sensor: !include sensor.yaml

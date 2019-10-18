@@ -1,0 +1,5 @@
+# Ring doorbell on/off sensor
+  - platform: ring
+    monitored_conditions:
+      - ding
+      - motion
