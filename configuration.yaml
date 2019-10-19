@@ -14,7 +14,11 @@ homeassistant:
 # Adds the Map & Configuration option on the left hand side of the UI
 config:
 map:
-  
+
+# The theme for the UI
+frontend:
+  themes: !include themes.yaml
+
 # Check hassio updates
 updater:
 
@@ -41,8 +45,7 @@ http:
 tts:
   - platform: google_translate
 
-frontend:
-  themes: !include themes.yaml  
+
 
 ### Integrated Components
 # iPhone
