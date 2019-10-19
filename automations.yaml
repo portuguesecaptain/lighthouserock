@@ -8,19 +8,19 @@
     data:
       name: simple-dark
 
-- alias: TravisCI
-  description: 'When a TravisCI build completes with a Pass, that build is pulled from GitHub to HomeAssistant, and the instance is restarted for new configurations to be run.'
-  trigger:
-    - platform: state
-      entity_id: sensor.portuguesecaptain_lighthouserock_config_last_build_id
-  condition:
-    - condition: state
-      entity_id: sensor.portuguesecaptain_lighthouserock_config_last_build_state
-      state: 'passed'
-  action:   
-    - service: hassio.addon_start
-      data: 
-        addon: "core_git_pull"
+# - alias: TravisCI
+  #description: 'When a TravisCI build completes with a Pass, that build is pulled from GitHub to HomeAssistant, and the instance is restarted for new configurations to be run.'
+  #trigger:
+    #- platform: state
+      #entity_id: sensor.portuguesecaptain_lighthouserock_config_last_build_id
+  #condition:
+    #- condition: state
+      #entity_id: sensor.portuguesecaptain_lighthouserock_config_last_build_state
+      #state: 'passed'
+  #action:   
+    #- service: hassio.addon_start
+      #data: 
+        #addon: "core_git_pull"
 
 - alias: Outdoor Lights at Sundown
   description: 'This automation controls the outdoor lights to turn on 15 min before sundown.'
@@ -39,14 +39,9 @@
     at: "00:00:00"
     platform: time
   condition:
-    condition: or
-    conditions:
-      - condition: state
-        state: 'not_home'
-        entity_id: device_tracker.ricardo_8d620d94_fed2_48dc_baf4_d268cd78cd15
-      - condition: state
-        entity_id: switch.outdoor_lights
-        state: 'off' 
+    condition: state
+    state: 'not_home'
+    entity_id: device_tracker.ricardo_8d620d94_fed2_48dc_baf4_d268cd78cd15
   action:
     - data:
         entity_id: switch.outdoor_lights

@@ -14,11 +14,13 @@ homeassistant:
 # Adds the Map & Configuration option on the left hand side of the UI
 config:
 map:
-system_health:
+  
+# Check hassio updates
 updater:
 
-# Contains panel going to other sites for the home
-panel_iframe: !include panel_iframe.yaml
+# Allows auto discovery of new devices, etc 
+discovery:
+zeroconf:
 
 # Defines all the lights and outlets in groups defined by rooms, etc.
 group: !include groups.yaml
