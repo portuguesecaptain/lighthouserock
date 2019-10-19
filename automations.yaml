@@ -31,21 +31,7 @@
   action:
   - data:
       entity_id: switch.outdoor_lights
-    service: switch.turn_off
-
-- alias: Outdoor Lights Off Home
-  description: 'This automation checks if I am home and its midnight, and will turn the outdoor lights off if those conditions are met.'
-  trigger:
-    at: "00:00:00"
-    platform: time
-  condition:
-    condition: state
-    state: 'not_home'
-    entity_id: device_tracker.ricardo_8d620d94_fed2_48dc_baf4_d268cd78cd15
-  action:
-    - data:
-        entity_id: switch.outdoor_lights
-      service: switch.turn_off
+    service: switch.turn_on
 
 - alias: Outdoor Lights Off Morning
   description: 'This automation will turn the lights off shortly before sunrise.'
@@ -58,13 +44,80 @@
     entity_id: switch.outdoor_lights
     state: 'off'
   action:
-    - data:
-        entity_id: switch.outdoor_lights
-      service: switch.turn_off
+    entity_id: switch.outdoor_lights
+    service: switch.turn_off
 
-#- alias: Johni DaDaLights
-#  description: 'This automation will control the lights for when Johni goes to teach DaDa'
-#  trigger:
-#    event: time
-#    platform: 
+- alias: Johni DaDaLights On
+  description: 'This automation will control the lights for when Johni goes to teach DaDa in the morning'
+  trigger:
+    platform: time
+    after: '05:45:00' 
+  condition:
+    - condition: time
+      weekday:
+        - sat
+        - sun
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.master_bedroom_hallway_1
+        brightness_pct: 50
+        transition: 5
+    - service: light.turn_on
+      data:
+        entity_id: light.light.2nd_floor_hall_1
+        brightness_pct: 50
+        transition: 5
+    - service: light.turn_on
+      data:
+        entity_id: light.living_room_1
+        brightness_pct: 50
+        transition: 5
+    - service: light.turn_on
+      data:
+        entity_id: light.master_bath_shower
+        brightness_pct: 50
+        transition: 5
+    - service: light.turn_on
+      data:
+        entity_id: light.johni_s_office
+        brightness_pct: 50
+        transition: 5
+    - service: switch.turn_on
+      data:
+        entity_id: switch.kitchen_cabinet_all
 
+- alias: Johni DaDaLights Off
+  description: 'This automation will control the lights for when Johni is done teaching DaDa.'
+  trigger:
+    platform: time
+    after: '08:45:00' 
+  condition:
+    - condition: time
+      weekday:
+        - sat
+        - sun
+  action:
+    - service: light.turn_off
+      data:
+        entity_id: light.master_bedroom_hallway_1
+        transition: 5
+    - service: light.turn_off
+      data:
+        entity_id: light.light.2nd_floor_hall_1
+        transition: 5
+    - service: light.turn_off
+      data:
+        entity_id: light.living_room_1
+        transition: 5
+    - service: light.turn_on
+      data:
+        entity_id: light.master_bath_shower
+        transition: 5
+    - service: light.turn_off
+      data:
+        entity_id: light.johni_s_office
+        transition: 5
+    - service: switch.turn_off
+      data:
+        entity_id: switch.kitchen_cabinet_all  
