@@ -64,6 +64,6 @@ ring:
 influxdb: !include influxdb.yaml
 
 # Specific device entities configured in files below:
+sensor: !include sensor.yaml
 camera: !include camera.yaml
 binary_sensor: !include binary_sensor.yaml
-sensor: !include sensor.yaml

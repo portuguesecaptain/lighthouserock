@@ -9,7 +9,7 @@
 # Travis CI integration with HomeAssistant and GitHub
 - platform: travisci
   api_key: !secret gh_token
-  repository: lighthouserock
+  repository: 'portuguesecaptain/lighthouserock'
   monitored_conditions:
     - last_build_finished_at
     - last_build_state

@@ -12,10 +12,10 @@
   #description: 'When a TravisCI build completes with a Pass, that build is pulled from GitHub to HomeAssistant, and the instance is restarted for new configurations to be run.'
   #trigger:
     #- platform: state
-      #entity_id: sensor.portuguesecaptain_lighthouserock_config_last_build_id
+      #entity_id: 
   #condition:
     #- condition: state
-      #entity_id: sensor.portuguesecaptain_lighthouserock_config_last_build_state
+      #entity_id: 
       #state: 'passed'
   #action:   
     #- service: hassio.addon_start
