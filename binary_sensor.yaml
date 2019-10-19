@@ -7,4 +7,3 @@
 # Controls what is considered a work day by checking if its a national holiday
   - platform: workday
     country: US
-    state: NJ
