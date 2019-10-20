@@ -4,7 +4,7 @@
     - light.driveway_door_1
     - light.driveway_door_2
     - switch.basement_side_door
-Basement:
+"Basement":
   entities:
     - light.basement_1
     - light.basement_2

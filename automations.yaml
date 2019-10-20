@@ -23,7 +23,7 @@
         #addon: "core_git_pull"
 
 - alias: Outdoor Lights at Sundown
-  description: 'This automation controls the outdoor lights to turn on 15 min before sundown.'
+  description: 'This automation controls the outdoor lights to turn on shortly before sundown.'
   trigger:
   - event: sunset
     offset: -0:15
@@ -91,7 +91,7 @@
   description: 'This automation will control the lights for when Johni is done teaching DaDa.'
   trigger:
     platform: time
-    at: '08:45:00' 
+    at: '09:00:00' 
   condition:
     - condition: time
       weekday:
@@ -120,4 +120,4 @@
         transition: 5
     - service: switch.turn_off
       data:
-        entity_id: switch.kitchen_cabinet_all  
+        entity_id: switch.kitchen_cabinet_all

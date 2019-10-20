@@ -15,12 +15,15 @@ homeassistant:
 config:
 map:
 
-# The theme for the UI
+# The theme for the UI and UX
 frontend:
   themes: !include themes.yaml
+lovelace:
+  mode: yaml
 
-# Check hassio updates
+# Check hassio updates & health checks
 updater:
+system_health:
 
 # Allows auto discovery of new devices, etc 
 discovery:

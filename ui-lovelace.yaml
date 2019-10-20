@@ -1,0 +1,201 @@
+title: Lighthouse Rock
+views:
+  - path: default_view
+    title: Home
+    badges:
+      - binary_sensor.workday_sensor
+      - binary_sensor.ring_front_door_motion
+      - binary_sensor.ring_front_door_ding
+      - binary_sensor.updater
+      - device_tracker.ricardo_8d620d94_fed2_48dc_baf4_d268cd78cd15
+      - sensor.ring_front_door_last_ding
+      - sensor.ring_front_door_last_motion
+      - sensor.ring_front_door_wifi_signal_strength
+      - sensor.ring_front_door_battery
+      - sensor.iphone_battery_level
+      - sensor.iphone_battery_state
+    cards:
+      - type: entities
+        entities:
+          - light.front_door
+          - light.driveway_door_1
+          - light.driveway_door_2
+          - switch.basement_side_door
+        title: Outdoor Lights
+        show_header_toggle: true
+      - type: entities
+        entities:
+          - light.basement_1
+          - light.basement_2
+          - light.basement_aux
+          - switch.basement_hall_1
+          - switch.basement_hall_2
+        title: Basement
+        show_header_toggle: true
+      - type: entities
+        entities:
+          - light.living_room_1
+          - light.living_room_2
+          - switch.living_room_sconces
+          - light.kitchen_1
+          - light.kitchen_2
+          - light.kitchen_dr_window
+          - light.kitchen_over_back_sink
+          - light.kitchen_over_side_sink
+          - switch.kitchen_cabinet_oven_side
+          - switch.kitchen_cabinet_dr_window
+          - light.pantry_hall_1
+          - light.pantry_hall_2
+          - light.dining_room_1
+          - light.dining_room_2
+          - light.master_bedroom
+          - light.master_bedroom_hallway_1
+          - light.master_bedroom_hallway_2
+          - light.master_bathroom_1_keypad
+          - light.master_bathroom_2
+          - light.master_bath_vanity
+          - light.master_bath_shower
+          - switch.master_bathroom_fan
+        title: First Floor
+        show_header_toggle: true
+      - type: entities
+        entities:
+          - light.living_room_1
+          - light.living_room_2
+          - switch.living_room_sconces
+        title: Living Room
+        show_header_toggle: true
+      - type: entities
+        entities:
+          - light.kitchen_1
+          - light.kitchen_2
+          - light.kitchen_dr_window
+          - light.kitchen_over_back_sink
+          - light.kitchen_over_side_sink
+          - switch.kitchen_cabinet_oven_side
+          - switch.kitchen_cabinet_dr_window
+          - light.pantry_hall_1
+          - light.pantry_hall_2
+        title: Kitchen
+        show_header_toggle: true
+      - type: entities
+        entities:
+          - light.dining_room_1
+          - light.dining_room_2
+        title: Dining Room
+        show_header_toggle: true
+      - type: entities
+        entities:
+          - light.master_bedroom
+        title: Master Bedroom
+        show_header_toggle: true
+      - type: entities
+        entities:
+          - light.master_bedroom_hallway_1
+          - light.master_bedroom_hallway_2
+        title: Master Hallway
+        show_header_toggle: true
+      - type: entities
+        entities:
+          - light.master_bathroom_1_keypad
+          - light.master_bathroom_2
+          - light.master_bath_vanity
+          - light.master_bath_shower
+          - switch.master_bathroom_fan
+        title: Master Bathroom
+        show_header_toggle: true
+      - type: entities
+        entities:
+          - light.2nd_floor_hall_1
+          - light.2nd_floor_hall_3
+          - light.2nd_floor_bathroom
+          - light.2nd_floor_bathroom_shower
+          - light.2nd_floor_bathroom_vanity
+          - switch.2nd_floor_bathroom_fan
+          - light.2nd_floor_back_bedroom
+          - light.2nd_floor_front_bedroom
+          - light.johni_s_office
+        title: Second Floor
+        show_header_toggle: true
+      - type: entities
+        entities:
+          - light.2nd_floor_hall_1
+          - light.2nd_floor_hall_3
+        title: Second Floor Hall
+        show_header_toggle: true
+      - type: entities
+        entities:
+          - light.2nd_floor_bathroom
+          - light.2nd_floor_bathroom_shower
+          - light.2nd_floor_bathroom_vanity
+          - switch.2nd_floor_bathroom_fan
+        title: Second Floor Bath
+        show_header_toggle: true
+      - type: entities
+        entities:
+          - light.2nd_floor_back_bedroom
+        title: Second Floor Back Bedroom
+        show_header_toggle: true
+      - type: entities
+        entities:
+          - light.2nd_floor_front_bedroom
+        title: Second Floor Front Bedroom
+        show_header_toggle: true
+      - type: entities
+        entities:
+          - light.johni_s_office
+        title: Johni's Office
+        show_header_toggle: true
+      - type: entities
+        entities:
+          - light.attic_1
+        title: Attic
+        show_header_toggle: true
+      - type: entities
+        entities:
+          - switch.kitchen_cabinet_oven_side
+          - switch.kitchen_cabinet_dr_window
+          - light.master_bedroom_hallway_1
+        title: Night Light
+        show_header_toggle: true
+      - type: entities
+        entities:
+          - automation.set_dark_theme_at_startup_and_login
+          - automation.outdoor_lights_at_sundown
+          - automation.outdoor_lights_off_morning
+          - automation.johni_dadalights_on
+          - automation.johni_dadalights_off
+        title: Automation
+      - type: picture-entity
+        entity: camera.front_door
+      - type: entities
+        entities:
+          - light.attic_2
+          - light.front_keypad
+          - light.front_door_special
+          - light.2nd_floor_hall_2
+        title: Light
+      - type: entities
+        entities:
+          - switch.pantry_hall_3_way
+          - switch.shower_time
+          - switch.kitchen_3_way
+          - switch.dining_room_3_way
+          - switch.outdoor_lights
+          - switch.basement_hall_3_way
+          - switch.master_bathroom_3_way
+          - switch.driveway_door_3_way
+          - switch.master_bedroom_hallway_3_way
+          - switch.attic_3_way
+          - switch.all_lights_out
+          - switch.living_room_3_way
+          - switch.basement_3_way
+          - switch.night_lights
+          - switch.kitchen_cabinets
+          - switch.2nd_floor_hall_3_way
+          - switch.auto_dr
+          - switch.front_door_coat_closet
+          - switch.kitchen_cabinet_all
+        title: Switch
+      - type: weather-forecast
+        entity: weather.lighthouse_rock
