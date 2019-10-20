@@ -29,9 +29,8 @@
     offset: -0:15
     platform: sun
   action:
-  - data:
-      entity_id: switch.outdoor_lights
-    service: switch.turn_on
+    service: homeassistant.turn_on
+    entity_id: group.outdoor_lights
 
 - alias: Outdoor Lights Off Morning
   description: 'This automation will turn the lights off shortly before sunrise.'
@@ -41,14 +40,14 @@
     platform: sun
   condition:
     condition: state
-    entity_id: switch.outdoor_lights
+    entity_id: group.outdoor_lights
     state: 'off'
   action:
-    entity_id: switch.outdoor_lights
-    service: switch.turn_off
+    service: homeassistant.turn_off
+    entity_id: group.outdoor_lights
 
-- alias: Johni DaDaLights On
-  description: 'This automation will control the lights for when Johni goes to teach DaDa in the morning'
+- alias: DaDaLights On
+  description: 'This automation will control the lights when teaching DaDa in the morning'
   trigger:
     platform: time
     at: '05:45:00' 
@@ -58,66 +57,60 @@
         - sat
         - sun
   action:
-    - service: light.turn_on
-      data:
-        entity_id: light.master_bedroom_hallway_1
-        brightness_pct: 50
-        transition: 5
-    - service: light.turn_on
-      data:
-        entity_id: light.light.2nd_floor_hall_1
-        brightness_pct: 50
-        transition: 5
+    #- service: light.turn_on
+     # data:
+      #  entity_id: light.master_bedroom_hallway_1
+      #  brightness_pct: 50
+      #  transition: 5
+    #- service: light.turn_on
+      #data:
+        #entity_id: light.light.2nd_floor_hall_1
+        #brightness_pct: 50
+        #transition: 5
     - service: light.turn_on
       data:
         entity_id: light.living_room_1
-        brightness_pct: 50
+        brightness_pct: 100
         transition: 5
-    - service: light.turn_on
-      data:
-        entity_id: light.master_bath_shower
-        brightness_pct: 50
-        transition: 5
-    - service: light.turn_on
-      data:
-        entity_id: light.johni_s_office
-        brightness_pct: 50
-        transition: 5
+    #- service: light.turn_on
+     # data:
+      #  entity_id: light.master_bath_shower
+      #  brightness_pct: 50
+      #  transition: 5
+    #- service: light.turn_on
+     # data:
+      #  entity_id: light.johni_s_office
+      #  brightness_pct: 50
+      #  transition: 5
     - service: switch.turn_on
       data:
         entity_id: switch.kitchen_cabinet_all
 
-- alias: Johni DaDaLights Off
-  description: 'This automation will control the lights for when Johni is done teaching DaDa.'
+- alias: DaDaLights Off
+  description: 'This automation will control the lights for when teaching DaDa is over.'
   trigger:
     platform: time
-    at: '09:00:00' 
+    at: '08:50:00' 
   condition:
     - condition: time
       weekday:
         - sat
         - sun
   action:
-    - service: light.turn_off
+    - service: homeassistant.turn_off
       data:
-        entity_id: light.master_bedroom_hallway_1s
+      - entity_id: group.johni_s_office
         transition: 5
-    - service: light.turn_off
+
+- alias: Basement Lights On
+  description: 'This automation will turn on all Basement lights if the Basement Hallway is lit'
+  trigger:
+    platform: state
+    entity_id: switch.basement_hall_2
+    from: 'off'
+    to: 'on'
+  action:
+    - service: homeassistant.turn_on
       data:
-        entity_id: light.light.2nd_floor_hall_1
+        entity_id: group.basement
         transition: 5
-    - service: light.turn_off
-      data:
-        entity_id: light.living_room_1
-        transition: 5
-    - service: light.turn_on
-      data:
-        entity_id: light.master_bath_shower
-        transition: 5
-    - service: light.turn_off
-      data:
-        entity_id: light.johni_s_office
-        transition: 5
-    - service: switch.turn_off
-      data:
-        entity_id: switch.kitchen_cabinet_all

@@ -35,11 +35,6 @@
     - light.master_bath_vanity
     - light.master_bath_shower
     - switch.master_bathroom_fan
-"Living Room":
-  entities:
-    - light.living_room_1
-    - light.living_room_2
-    - switch.living_room_sconces
 "Kitchen":
   entities:
     - light.kitchen_1
@@ -51,24 +46,6 @@
     - switch.kitchen_cabinet_dr_window
     - light.pantry_hall_1
     - light.pantry_hall_2
-"Dining Room":
-  entities:
-    - light.dining_room_1
-    - light.dining_room_2
-"Master Bedroom":
-  entities:
-    - light.master_bedroom
-"Master Hallway":
-  entities:
-    - light.master_bedroom_hallway_1
-    - light.master_bedroom_hallway_2
-"Master Bathroom":
-  entities:
-    - light.master_bathroom_1_keypad
-    - light.master_bathroom_2
-    - light.master_bath_vanity
-    - light.master_bath_shower
-    - switch.master_bathroom_fan
 "Second Floor":
   entities:
     - light.2nd_floor_hall_1
@@ -80,28 +57,19 @@
     - light.2nd_floor_back_bedroom
     - light.2nd_floor_front_bedroom
     - light.johni_s_office
-"Second Floor Hall":
-  entities:
-    - light.2nd_floor_hall_1
-    - light.2nd_floor_hall_3
-"Second Floor Bath":
-  entities:
-    - light.2nd_floor_bathroom
-    - light.2nd_floor_bathroom_shower
-    - light.2nd_floor_bathroom_vanity
-    - switch.2nd_floor_bathroom_fan
-"Second Floor Back Bedroom":
-  entities:
-    - light.2nd_floor_back_bedroom
-"Second Floor Front Bedroom":
-  entities:
-    - light.2nd_floor_front_bedroom
 "Johni's Office":
   entities:
     - light.johni_s_office
+    - light.2nd_floor_hall_1
+    - switch.kitchen_cabinet_oven_side
+    - switch.kitchen_cabinet_dr_window
+    - light.master_bedroom_hallway_1
+    - light.living_room_1
+    - light.master_bath_shower
 "Attic":
   entities:
     - light.attic_1
+    - light.attic_2
 "Night Light":
   entities:
     - switch.kitchen_cabinet_oven_side

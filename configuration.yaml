@@ -29,7 +29,7 @@ system_health:
 discovery:
 zeroconf:
 
-# Defines all the lights and outlets in groups defined by rooms, etc.
+# Defines groups in hassio
 group: !include groups.yaml
 
 # All automations are below
@@ -47,8 +47,6 @@ http:
 # Text to speech
 tts:
   - platform: google_translate
-
-
 
 ### Integrated Components
 # iPhone
@@ -73,3 +71,4 @@ influxdb: !include influxdb.yaml
 sensor: !include sensor.yaml
 camera: !include camera.yaml
 binary_sensor: !include binary_sensor.yaml
+# light: !include lights.yaml
