@@ -26,17 +26,18 @@
   description: 'This automation controls the outdoor lights to turn on shortly before sundown.'
   trigger:
   - event: sunset
-    offset: -0:15
+    offset: "-0:15:00"
     platform: sun
   action:
     service: homeassistant.turn_on
     entity_id: group.outdoor_lights
 
+
 - alias: Outdoor Lights Off Morning
   description: 'This automation will turn the lights off shortly before sunrise.'
   trigger:
     event: sunrise
-    offset: -0:15
+    offset: "-0:15:00"
     platform: sun
   condition:
     condition: state
@@ -97,10 +98,10 @@
         - sat
         - sun
   action:
-    - service: homeassistant.turn_off
-      data:
-      - entity_id: group.johni_s_office
-        transition: 5
+  - service: homeassistant.turn_off
+    data:
+      entity_id: group.johni_s_office
+      transition: 5
 
 - alias: Basement Lights On
   description: 'This automation will turn on all Basement lights if the Basement Hallway is lit'
@@ -110,7 +111,7 @@
     from: 'off'
     to: 'on'
   action:
-    - service: homeassistant.turn_on
-      data:
-        entity_id: group.basement
-        transition: 5
+  - service: homeassistant.turn_on
+    data:
+      entity_id: group.basement
+      transition: 5
