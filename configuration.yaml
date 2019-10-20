@@ -15,6 +15,11 @@ homeassistant:
 config:
 map:
 
+# Adds a weather card to the main screen
+weather:
+  - platform: darksky
+    api_key: !secret darksky_api
+  
 # The theme for the UI and UX
 frontend:
   themes: !include themes.yaml

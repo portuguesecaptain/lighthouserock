@@ -17,7 +17,10 @@ views:
       - type: picture-entity
         entity: camera.front_door
       - type: weather-forecast
+        entity: weather.dark_sky
+      - type: weather-forecast
         entity: weather.lighthouse_rock
+      
 
 ##################
 ### Lights tab ###
@@ -93,12 +96,13 @@ views:
 #######################
 
   - path: automation
+    title: Automations
     cards:
       - type: entities
         entities:
           - automation.set_dark_theme_at_startup_and_login
           - automation.outdoor_lights_at_sundown
           - automation.outdoor_lights_off_morning
-          - automation.johni_dadalights_on
-          - automation.johni_dadalights_off
+          - automation.dadalights_on
+          - automation.dadalights_off
         title: Automations
